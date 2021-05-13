@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="css/indexCSS.css">
+
+    <!--Name of the webpage in the browser-->
+    <title>OGM Task Manager</title>
+    <!--Linked CSS file for webpage-->
+    <link rel="stylesheet" type="text/css" href="css/CSS.css">
+    <!--Fonts-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Newly added-->
+    <meta cahrset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Latest commpiled and minified CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--jQuery library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Latest compiled JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+    <!--3 Column Layout-->
+    <div class="container">
+        <div class="row">
+            <!--Calendar column-->
+            <div class ="col-sm-4" name="calendarPanel">
+                <!--<ul id="calendar">-->
+                <!--</ul>-->
+            </div>
+            <!--Day column-->
+            <div class ="col-sm-4" name="dayPanel">
+                <div id="headerBar" class="header">
+                    <h2>Task List</h2>
+                    <input type="text" id="newTask" placeholder="Add new task here"></input>
+                    <input type="text" id="newDescription" placeholder="Add a description here"></input>
+                    <input type="text" id="newTags" placeholder="Add tags seperated by , here"></input>
+                    <span onclick="newElement()" class="addButton"> Add </span>
+                </div>
+                <ul id="taskList">
+                    <li id="task">Monday's task</li>
+                    <li id="task">Tuesday's task</li>
+                    <li id="task">Wednesday's task</li>
+                    <li id="task">Thursday's task</li>
+                    <li id="task">Friday's task</li>
+                </ul>
+            </div>
+            <!--Task column-->
+            <div class ="col-sm-4" name="taskPanel">
+                
+            </div>
+        </div>
+    </div>
+    
+    <!--Bottom toolbar-->
+    <div class="footerBar">
+        <p>Details about the site</p>
+    </div>
+
+</body>
+
+<script src="scripts/indexJS.js"></script>
+
+</html>

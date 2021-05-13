@@ -1,0 +1,6 @@
+body {
+    text-align: center;
+    /*Coursework needs to have a responsive layout"*/
+    min-width: 450px;
+    max-width: 800px;
+}
