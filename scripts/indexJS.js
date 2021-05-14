@@ -1,5 +1,13 @@
 var nodeList = document.getElementsByTagName("li");
 
+class Task {
+    constructor(title, tags, desciption) {
+      this.title = title; //string
+      this.tags = tags; //array
+      this.desciption = desciption; //string
+    }
+  }
+
 for (var i = 0; i < nodeList.length; i++) {
     var span = document.createElement("SPAN");
     var text = document.createTextNode("\u00D7");
@@ -29,9 +37,10 @@ list.addEventListener("click", function(ev) {
 
 function newElement() {
     var li = document.createElement("li");
-    li.setAttribute("id", "task")
-    var inputValue = document.getElementById("newTask").value;
-    var t = document.createTextNode(inputValue);
+    li.setAttribute("id", "task") //used to be input value
+    var inputTags = document.getElementById("newTags").value; //need to be parsed
+    var inputDescription = document.getElementById("newDescription");
+    var t = document.createTextNode(inputValue); 
 
     li.appendChild(t);
 
