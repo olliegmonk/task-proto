@@ -1,4 +1,4 @@
-var nodeList = document.getElementsByTagName("li");
+var nodeList = document.getElementsByClassName("task");
 var calendar = [];
 
 //Task object
@@ -34,10 +34,10 @@ for (var i = 0; i < close.length; i++) {
     }
 }
 
-var list = document.querySelector("ul");
+var list = document.getElementById("taskList");
 
 list.addEventListener("click", function(ev) {
-    if(ev.target.tagName === "LI") {
+    if(ev.target.className === "task") {
         ev.target.classList.toggle("checked");
     }
 }, false);
@@ -46,19 +46,19 @@ function newElement() {
     var li = document.createElement("li");
     li.setAttribute("class", "task") //used to be input value
     var inputTitle = document.getElementById("newTitle").value;
-    var inputTags = document.getElementById("newTags").value; //need to be parsed
-    var inputDescription = document.getElementById("newDescription");
+    var inputTags = document.getElementById("newTags").value; 
+    var inputDescription = document.getElementById("newDescription").value;
     var t = document.createTextNode(inputTitle); 
 
     li.appendChild(t);
 
-    if (inputValue === "") {
+    if (inputTitle === "") {
         alert("Input required");
     } else {
         document.getElementById("taskList").appendChild(li);
     }
 
-    document.getElementById("newTask").value = "";
+    document.getElementById("newTitle").value = "";
 
     var span = document.createElement ("SPAN");
     var text = document.createTextNode("\u00D7");
@@ -67,7 +67,7 @@ function newElement() {
     li.appendChild(span);
 
     for(var i = 0; i < close.length; i++) {
-        close[i].oncllick = function() {
+        close[i].onclick = function() {
             var div = this.parentElement;
             div.style.display = "none";
         }
