@@ -1,5 +1,7 @@
 var nodeList = document.getElementsByTagName("li");
+var calendar = [];
 
+//Task object
 class Task {
     constructor(title, tags, desciption) {
       this.title = title; //string
@@ -7,6 +9,11 @@ class Task {
       this.desciption = desciption; //string
     }
   }
+
+//Adds the month of March to calendar
+for (var i = 1; i < 32; i++) {
+    calendar.push(new Date(2021, 03, i))
+}
 
 for (var i = 0; i < nodeList.length; i++) {
     var span = document.createElement("SPAN");
@@ -37,10 +44,11 @@ list.addEventListener("click", function(ev) {
 
 function newElement() {
     var li = document.createElement("li");
-    li.setAttribute("id", "task") //used to be input value
+    li.setAttribute("class", "task") //used to be input value
+    var inputTitle = document.getElementById("newTitle").value;
     var inputTags = document.getElementById("newTags").value; //need to be parsed
     var inputDescription = document.getElementById("newDescription");
-    var t = document.createTextNode(inputValue); 
+    var t = document.createTextNode(inputTitle); 
 
     li.appendChild(t);
 
@@ -64,4 +72,10 @@ function newElement() {
             div.style.display = "none";
         }
     }
+}
+
+function tagParse(inputTags) {
+    inputTags = inputTags.replace(" ", "");
+    inputTags = inputTags.split(",");
+    return inputTags;
 }

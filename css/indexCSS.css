@@ -5,14 +5,14 @@ body {
     max-width: 1920px;
 }
 
-.header {
+.headerBar {
     background-color: lightblue;
     padding: 10px;
     color: ghostwhite;
     text-align: center;
 }
 
-.header:after {
+.headerBar:after {
     content: "";
     display: table;
     clear: both;
@@ -44,12 +44,12 @@ input {
     color: white;
 }
 
-ul {
+.taskList {
     margin: 0;
     padding: 0;
 }
 
-ul li {
+.task {
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
@@ -63,21 +63,21 @@ ul li {
     user-select: none;
 }
 
-ul li:nth-child(odd) {
+.task:nth-child(odd) {
     background: lightyellow;
 }
 
-ul li:hover {
+.task:hover {
     background: dodgerblue;
 }
 
-ul li.checked {
+.task.checked {
     background: gold;
     color: white;
     text-decoration: line-through;
 }
 
-ul li.checked::before {
+.task.checked::before {
     content: '';
     position: absolute;
     border-color: white;
