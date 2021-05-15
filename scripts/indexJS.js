@@ -42,7 +42,8 @@ var list = document.getElementById("taskList");
 //event listening for click on <li> task element
 list.addEventListener("click", function(ev) {
     if(ev.target.className === "task") {
-        ev.target.classList.toggle("checked");
+        //ev.target.classList.toggle("checked"); default checked functionality
+        updateTaskPanel(ev.target.id);
     }
 }, false);
 
@@ -58,6 +59,7 @@ function newElement() {
 
     var t = document.createTextNode(inputTitle); //formats text for HTML
     li.appendChild(t); //adds formatted text to new <li> element
+
 
     if (inputTitle === "") {
         alert("Input required");
@@ -76,8 +78,9 @@ function newElement() {
     span.className = "close"
     span.appendChild(text);
     li.appendChild(span);
+    li.setAttribute("id", inputTitle);
 
-    var newTask = new Task(inputTitle,  inputTags, inputDescription); //creates new Task object
+    var newTask = new Task(inputTitle,  tagParse(inputTags), inputDescription); //creates new Task object
     taskArray.push(newTask); //adds new task to array
 
     //when user clicks x on a task
@@ -94,4 +97,37 @@ function tagParse(inputTags) {
     inputTags = inputTags.replace(" ", "");
     inputTags = inputTags.split(",");
     return inputTags;
+}
+
+function updateTaskPanel(selectedTask) {
+
+    //finds selected task in taskArray
+    let task = taskArray.find(task => task.title === selectedTask);
+
+    if (task === null) {
+        return
+    }
+
+    console.log(taskArray[0]);
+    console.log(selectedTask);
+    //console.log(task);
+    var taskPanel = document.getElementById("taskPanel");
+    var taskHeader = document.createElement("DIV");
+    var taskTitle = document.createElement("h2");
+    var taskTags = document.createElement("p");
+    var taskDescription = document.createElement("p");
+
+    taskHeader.setAttribute("class", "headerBar");
+    taskTitle.appendChild(document.createTextNode(task.title));
+    taskTags.appendChild(document.createTextNode(task.tags));
+    taskDescription.appendChild(document.createTextNode(task.description));
+    
+    taskHeader.appendChild(taskTitle);
+    taskHeader.appendChild(taskTags);
+    
+    console.log(taskPanel);
+    taskPanel.innerHTML = "";
+    taskPanel.appendChild(taskHeader);
+    taskPanel.appendChild(taskDescription);
+
 }
