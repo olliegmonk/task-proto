@@ -12,10 +12,17 @@ class Task {
     }
   }
 
+var calendarList = document.getElementById("calendar");
 //Adds the month of March to calendar
 for (var i = 1; i < 32; i++) {
-    calendar.push(new Date(2021, 03, i))
+    calendar.push(new Date(2021, 02, i))
+    var nextDay = document.createElement("LI");
+    nextDay.setAttribute("class", "day");
+    var nextDayText = document.createTextNode(calendar[calendar.length-1].getDate() + " Example Task")
+    nextDay.appendChild(nextDayText);
+    calendarList.appendChild(nextDay);
 }
+
 
 for (var i = 0; i < nodeList.length; i++) {
     var span = document.createElement("SPAN");

@@ -5,6 +5,29 @@ body {
     max-width: 1920px;
 }
 
+.day {
+    cursor: pointer;
+    position: block;
+    padding: 5px;
+    margin: 5px;
+    border: 2px;
+    border-radius: 1px;
+    list-style-type: none;
+    width: 85%;
+    display: table;
+    background: rgb(217, 173, 230);
+    font-size: 16px;
+    text-align: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.day:nth-child(odd) {
+    background: rgb(255, 124, 211);
+}
+
 .headerBar {
     background-color: rgb(230, 173, 216);
     padding: 10px;
@@ -57,6 +80,7 @@ input {
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
+    margin: 5px;
     list-style-type: none;
     background: rgb(217, 173, 230);
     font-size: 18px;
@@ -118,4 +142,10 @@ input {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.panel {
+    border: 5px;
+    border-style: double;
+    color: rgb(255, 30, 199);
 }
