@@ -6,7 +6,7 @@ body {
 }
 
 .headerBar {
-    background-color: lightblue;
+    background-color: rgb(230, 173, 216);
     padding: 10px;
     color: ghostwhite;
     text-align: center;
@@ -16,6 +16,10 @@ body {
     content: "";
     display: table;
     clear: both;
+}
+
+.input:after {
+    margin-bottom: 10px;
 }
 
 input {
@@ -54,7 +58,7 @@ input {
     position: relative;
     padding: 12px 8px 12px 40px;
     list-style-type: none;
-    background: lightblue;
+    background: rgb(217, 173, 230);
     font-size: 18px;
     text-align: left;
     -webkit-user-select: none;
@@ -64,11 +68,11 @@ input {
 }
 
 .task:nth-child(odd) {
-    background: lightyellow;
+    background: rgb(255, 124, 211);
 }
 
 .task:hover {
-    background: dodgerblue;
+    background: rgb(255, 30, 199);
 }
 
 .task.checked {

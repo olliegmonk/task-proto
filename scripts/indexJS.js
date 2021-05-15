@@ -1,5 +1,7 @@
-var nodeList = document.getElementsByClassName("task");
-var calendar = [];
+//global variables
+var nodeList = document.getElementsByClassName("task"); //HTML <li> task elements
+var taskArray = [] //JS Task objects
+var calendar = []; //dates used by calendar panel
 
 //Task object
 class Task {
@@ -25,8 +27,9 @@ for (var i = 0; i < nodeList.length; i++) {
     nodeList[i].appendChild(span);
 }
 
-var close = document.getElementsByClassName("close");
+var close = document.getElementsByClassName("close"); //holds CSS class
 
+//loop listening for click on x
 for (var i = 0; i < close.length; i++) {
     close[i].onclick = function() {
         var div = this.parentElement;
@@ -36,6 +39,7 @@ for (var i = 0; i < close.length; i++) {
 
 var list = document.getElementById("taskList");
 
+//event listening for click on <li> task element
 list.addEventListener("click", function(ev) {
     if(ev.target.className === "task") {
         ev.target.classList.toggle("checked");
@@ -43,14 +47,17 @@ list.addEventListener("click", function(ev) {
 }, false);
 
 function newElement() {
-    var li = document.createElement("li");
-    li.setAttribute("class", "task") //used to be input value
+
+    var li = document.createElement("li"); //creates new <li> element
+    li.setAttribute("class", "task") //sets new element to class task
+    
+    //retrives data from input boxes 
     var inputTitle = document.getElementById("newTitle").value;
     var inputTags = document.getElementById("newTags").value; 
     var inputDescription = document.getElementById("newDescription").value;
-    var t = document.createTextNode(inputTitle); 
 
-    li.appendChild(t);
+    var t = document.createTextNode(inputTitle); //formats text for HTML
+    li.appendChild(t); //adds formatted text to new <li> element
 
     if (inputTitle === "") {
         alert("Input required");
@@ -58,14 +65,22 @@ function newElement() {
         document.getElementById("taskList").appendChild(li);
     }
 
+    //resets input  boxes to empty values
     document.getElementById("newTitle").value = "";
+    document.getElementById("newTags").value = "";
+    document.getElementById("newDescription").value = "";
 
+    //formats new <li> element with x symbol
     var span = document.createElement ("SPAN");
     var text = document.createTextNode("\u00D7");
     span.className = "close"
     span.appendChild(text);
     li.appendChild(span);
 
+    var newTask = new Task(inputTitle,  inputTags, inputDescription); //creates new Task object
+    taskArray.push(newTask); //adds new task to array
+
+    //when user clicks x on a task
     for(var i = 0; i < close.length; i++) {
         close[i].onclick = function() {
             var div = this.parentElement;
@@ -74,6 +89,7 @@ function newElement() {
     }
 }
 
+//seperates tags into seperate array entities
 function tagParse(inputTags) {
     inputTags = inputTags.replace(" ", "");
     inputTags = inputTags.split(",");
