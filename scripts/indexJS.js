@@ -5,10 +5,10 @@ var calendar = []; //dates used by calendar panel
 
 //Task object
 class Task {
-    constructor(title, tags, desciption) {
+    constructor(title, tags, description) {
       this.title = title; //string
       this.tags = tags; //array
-      this.desciption = desciption; //string
+      this.description = description; //string
     }
   }
 
@@ -87,7 +87,7 @@ function newElement() {
     li.appendChild(span);
     li.setAttribute("id", inputTitle);
 
-    var newTask = new Task(inputTitle,  tagParse(inputTags), inputDescription); //creates new Task object
+    var newTask = new Task(inputTitle, tagParse(inputTags), inputDescription); //creates new Task object
     taskArray.push(newTask); //adds new task to array
 
     //when user clicks x on a task
@@ -131,8 +131,7 @@ function updateTaskPanel(selectedTask) {
     
     taskHeader.appendChild(taskTitle);
     taskHeader.appendChild(taskTags);
-    
-    console.log(taskPanel);
+
     taskPanel.innerHTML = "";
     taskPanel.appendChild(taskHeader);
     taskPanel.appendChild(taskDescription);

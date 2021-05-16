@@ -29,7 +29,7 @@ body {
 }
 
 .headerBar {
-    background-color: rgb(230, 173, 216);
+    background-color: rgb(217, 173, 230);
     padding: 10px;
     color: ghostwhite;
     text-align: center;
@@ -135,7 +135,7 @@ input {
     position: relative;
     padding: 12px 8px 12px 40px;
     list-style-type: none;
-    background: lightpink ;
+    background: rgb(255, 124, 211) ;
     font-size: 18px;
     text-align: left;
     -webkit-user-select: none;
@@ -147,5 +147,44 @@ input {
 .panel {
     border: 5px;
     border-style: double;
-    color: rgb(255, 30, 199);
+    color: rgb(63, 63, 63);
 }
+
+.footerBar {
+    background-color: white;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerBar a {
+    float: left;
+    display: block;
+    color: darkgrey;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.footerBar a:hover {
+    background-color: rgb(255, 124, 211);
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.footerBar a.active {
+    background-color: rgb(255, 30, 199);
+    color: white;
+}
+
+/*
+html {
+    -moz-filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+    filter: grayscale(100%);
+}
+*/
