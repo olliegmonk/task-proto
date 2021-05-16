@@ -179,6 +179,9 @@ input {
     background-color: rgb(255, 30, 199);
     color: white;
 }
+.footerBar .greyscaleButton {
+    float: right;
+}
 
 /*
 html {
