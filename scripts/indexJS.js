@@ -17,8 +17,11 @@ var calendarList = document.getElementById("calendar");
 for (var i = 1; i < 32; i++) {
     calendar.push(new Date(2021, 02, i))
     var nextDay = document.createElement("LI");
+    if (i == 1) {
+        nextDay.setAttribute("id", "day-active");
+    }
     nextDay.setAttribute("class", "day");
-    var nextDayText = document.createTextNode(calendar[calendar.length-1].getDate() + " Example Task")
+    var nextDayText = document.createTextNode(calendar[calendar.length-1].getDate() + " ")
     nextDay.appendChild(nextDayText);
     calendarList.appendChild(nextDay);
 }
@@ -102,6 +105,10 @@ function newElement() {
     li.appendChild(span);
     li.setAttribute("id", inputTitle);
 
+    if (taskArray.length == 0) {
+        var currentDay = document.getElementById("day-active");
+        currentDay.appendChild(document.createTextNode(inputTitle));
+    }
     var newTask = new Task(inputTitle, tagParse(inputTags), inputDescription); //creates new Task object
     taskArray.push(newTask); //adds new task to array
 
