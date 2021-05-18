@@ -54,6 +54,21 @@ list.addEventListener("click", function(ev) {
     }
 }, false);
 
+/* var grey = document.getElementsByClassName("greyscaleButton");
+list.addEventListener("click", function(ev) {
+    if(ev.target.className === "greyscaleButton") {
+        //var global = document.querySelector("html");
+        //global.classList.toggle("grey");
+        ev.target.classList.toggle("grey");
+        console.log("Grey");
+    }
+}, false); */
+
+function grey() {
+    var doc = document.getElementById("global");
+    doc.classList.toggle("grey")
+}
+
 function newElement() {
 
     var li = document.createElement("li"); //creates new <li> element
