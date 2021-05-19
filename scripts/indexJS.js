@@ -123,7 +123,7 @@ function newElement() {
 
 //seperates tags into seperate array entities
 function tagParse(inputTags) {
-    inputTags = inputTags.replace(" ", "");
+    inputTags = inputTags.replace(/ /g, "");
     inputTags = inputTags.split(",");
     return inputTags;
 }
